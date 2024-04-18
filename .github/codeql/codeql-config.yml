@@ -1,8 +1,0 @@
-name: "My CodeQL config"
-
-# https://docs.github.com/en/code-security/code-scanning/automatically-scanning-your-code-for-vulnerabilities-and-errors/customizing-code-scanning#using-queries-in-ql-packs
-#queries:
-#  - uses: security-and-quality
-
-paths:
-  - src
