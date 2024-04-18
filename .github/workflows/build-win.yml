@@ -23,15 +23,18 @@ jobs:
           submodules: true
 
     - name: Configure CMake
-      working-directory: ./playground
-      run: |
-        cd playground
-        cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -A x64 -DARCH=Win64
+      working-directory: .\playground
+      run: cmake -B build -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -A x64 -DARCH=Win64
+
+      # NOTE: The cmake build is forced to be single
+      # configuration (either Debug or Release) but it
+      #  must be specified when running tests on Windows
+      # because of MSVC solution oddities
 
     - name: Build
-      working-directory: ./playground
+      working-directory: .\playground
       run: cmake --build build --config ${{env.BUILD_TYPE}}
 
     - name: Test
-      working-directory: ./playground
+      working-directory: .\playground
       run: ctest --test-dir build ${{ github.event.inputs.ctestArgs }}
