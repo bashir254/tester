@@ -28,7 +28,7 @@ set(PODOFO_SOVERSION "1")
 # Main includes
 #
 include(CheckIncludeFile)
-include(CheckLibraryExists)
+#include(CheckLibraryExists)
 include(TestBigEndian)
 include(CheckTypeSize)
 include(GNUInstallDirs)
